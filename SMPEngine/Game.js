@@ -18,9 +18,7 @@ export const Game =
 	
 	// Init function, called once
 	Init()
-	{
-		this.GameStateManager.gameState = 'INIT';
-		
+	{		
 		this.time = 0;
 		
 		// setup the renderer

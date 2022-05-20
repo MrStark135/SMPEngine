@@ -10,19 +10,9 @@
 // 		Render: function() { /* All Renders() that should be done during this state */ }
 // }
 
-// Add transitions to and from this state by making a transition manager function
-// Transition manager should change GameStateManager.gameState = <NEW_STATE>
-// push() the function in GameStateManager.transitionManagers array in Init()
-// Put transitionManager definitions to the bottom of this file
-
-// import ctx and canvas (for rendering): import { canvas, ctx } from "../common.js";
-// import Input: import { Input } from "../Input.js";
-
-import { Game } from "../Game.js";
-import { GameStateManager } from "../GameStateManager.js"
-import { Playing } from "../UserScripts/GameStates/Playing.js";
-import { Paused } from "../UserScripts/GameStates/Paused.js";
-import { Gameover } from "../UserScripts/GameStates/Gamover.js";
+import { GameStateManager } from '../GameStateManager.js';
+import { Playing } from '../Builtin/GameStates/Playing.js';
+import { pauseGame } from '../Builtin/TransitionManagers/transitionManagers.js';
 
 export const GameStateInterface = 
 {
@@ -33,32 +23,8 @@ export const GameStateInterface =
 		
 		// reset array every Init() to avoid duplicates and garbage
 		GameStateManager.transitionManagers = [];
-		
 		// add all transition managers
-		GameStateManager.transitionManagers.push(quitGame.bind(GameStateManager));
+		//GameStateManager.transitionManagers.push(quitGame.bind(GameStateManager));
 		GameStateManager.transitionManagers.push(pauseGame.bind(GameStateManager));
 	}
-}
-
-// ----------------------- Transition Managers -------------------------
-// here go all transitionManagers. Add more functions by pushing() them in Init()
-// add short documentation for each function you add
-
-// if 'Escape' pressed transition to GAMEOVER
-function quitGame()
-{
-	if(Game.Input.keyDown == 'Escape')
-		this.gameState = Gameover;
-}
-
-// if 'Space' is pressed toggle PAUSED state. Possible only when PLAYING
-function pauseGame()
-{
-	// toggles between PLAYING and PAUSED
-	// NOTICE: game can be PAUSED only when PLAYING
-	
-	if(Game.Input.keyDown == 'Space' &&	this.gameState.name == 'PLAYING')
-		this.gameState = Paused;
-	else if(Game.Input.keyDown == 'Space' && this.gameState.name == 'PAUSED')
-		this.gameState = Playing;
 }

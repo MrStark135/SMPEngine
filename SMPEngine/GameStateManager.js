@@ -15,17 +15,7 @@ export const GameStateManager =
 	lastTransition: lastTransitionThreshold,
 	
 	Init()
-	{	
-		// Init the gameState object
-		this.gameState = 
-		{
-			// each state has a Update() and Render() functions
-			// name is used for identifying current state
-			name: 'INIT',
-			Update: function() {},
-			Render: function() {}
-		}
-		
+	{		
 		// Init GameStateInterface module
 		this.GameStateInterface = GameStateInterface;
 		this.GameStateInterface.Init();

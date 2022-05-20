@@ -3,17 +3,17 @@
 // Everything you want this game engine to do should be done in these files
 
 // Add game objects to the scene by pushing them to gameObjects array
-// GameObjects inherit from GameObject located in GameObject.js
+// GameObjects inherit from GameObject located in Builtin/GameObject.js
 // All behaviour for your gameObjects should be done in Update()
 // change Render() for different rendering behaviour
 
 // import ctx and canvas (for rendering): import { canvas, ctx } from "../common.js";
 // import Input: import { Input } from "../Input.js";
 
-import { Cube, FollowerCube } from "../UserScripts/GameObjects/Cube.js";
+import { Cube, FollowerCube } from '../Builtin/GameObjects/Cube.js';
+import { ManagerObject } from '../Builtin/ManagerObjects/ManagerObject.js'
+import { GameObjectsManager } from '../GameObjectsManager.js';
 
-import { GameObjectsManager } from "../GameObjectsManager.js";
-import { ManagerObject } from "../UserScripts/ManagerObjects/ManagerObject.js";
 export const GameObjectsInterface = 
 {
 	Init()

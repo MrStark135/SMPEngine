@@ -63,3 +63,5 @@ class MyCustomGameObject extends GameObject
 }
 
 ```
+
+[^1]: The `Update()` or `Render()` functions can be defined as empty in case there is no need for rendering or updating
