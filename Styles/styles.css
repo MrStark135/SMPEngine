@@ -29,6 +29,5 @@ body
 {
 	background-color: rgb(240, 240, 240);
 	
-	width: 100vmin;
-	height: 100vmin;
+	/* The width and height are edited dynamically */
 }

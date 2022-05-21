@@ -5,7 +5,7 @@ export class ManagerObject
 {
 	constructor()
 	{
-		
+		// this just runs a check, doesn't store anything
 	}
 	
 	Update()

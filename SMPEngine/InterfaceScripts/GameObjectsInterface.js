@@ -10,9 +10,12 @@
 // import ctx and canvas (for rendering): import { canvas, ctx } from "../common.js";
 // import Input: import { Input } from "../Input.js";
 
-import { Cube, FollowerCube } from '../Builtin/GameObjects/Cube.js';
+import { Rect } from '../Builtin/GameObjects/Rect.js';
+import { Circle } from '../Builtin/GameObjects/Circle.js';
+import { FollowerRect } from '../UserScripts/GameObjects/FollowerRect.js';
 import { ManagerObject } from '../Builtin/ManagerObjects/ManagerObject.js'
 import { GameObjectsManager } from '../GameObjectsManager.js';
+import { SpriteObject } from '../UserScripts/GameObjects/SpriteObject.js';
 
 export const GameObjectsInterface = 
 {
@@ -22,8 +25,16 @@ export const GameObjectsInterface =
 		GameObjectsManager.gameObjects = [];
 		
 		// HERE ADD GameObjects to the scene
-		GameObjectsManager.gameObjects.push(new Cube(100, 100, 200, '#673'));
-		GameObjectsManager.gameObjects.push(new FollowerCube(100, 100, 200, '#25F'));
+		GameObjectsManager.gameObjects.push(new Rect(100, 100, 100, 100, '#673'));
+		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 200, 1, '#25F'));
+		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 1, 200, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(100, 100, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(100, 200, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(200, 100, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(200, 200, 20, '#25F'));
+		
+		GameObjectsManager.gameObjects.push(new SpriteObject(200, 200, 100, 100, 'first.png'));
+		
 		GameObjectsManager.gameObjects.push(new ManagerObject());
 		// ...
 		// ...

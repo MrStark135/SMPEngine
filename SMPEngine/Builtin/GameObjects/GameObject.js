@@ -2,14 +2,16 @@ import { ctx } from "../../common.js";
 
 export class GameObject
 {
-	constructor(x, y, width, height, color)
+	constructor(x, y, color)
 	{
+		// position
 		this.x = x;
 		this.y = y;
-		this.width = width;
-		this.height = height;
+
+		// fill color
 		this.color = color;
 		
+		// every object needs a renderer
 		this.ctx = ctx;
 	}
 	
@@ -19,9 +21,9 @@ export class GameObject
 	}
 	Render()
 	{
-		// default Redner()
+		// default Render()
 		this.ctx.beginPath();
 		this.ctx.fillStyle = this.color;
-		this.ctx.fillRect(this.x, this.y, this.width, this.height);
+		this.ctx.fillRect(this.x, this.y, 50, 50);
 	}
 }

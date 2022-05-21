@@ -23,8 +23,6 @@ export const GameObjectsManager =
 		{
 			this.gameObjects[i].Update();
 		}
-		
-		console.log(this.gameObjects);
 	},
 	Render()
 	{

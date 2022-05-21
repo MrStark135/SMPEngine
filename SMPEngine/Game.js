@@ -31,7 +31,7 @@ export const Game =
 		// Init Input module
 		this.Input = Input;
 		this.Input.Init();
-				
+		
 		// Init GameStateManager module - should be loaded last
 		this.GameStateManager = GameStateManager;
 		this.GameStateManager.Init();
