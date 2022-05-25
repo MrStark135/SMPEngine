@@ -7,9 +7,10 @@
 // import ctx and canvas (for rendering): import { canvas, ctx } from "../common.js";
 // import Input: import { Input } from "../Input.js";
 
-import { Paused } from '../GameStates/Paused.js';
-import { Playing } from '../GameStates/Playing.js';
-import { Game } from '../../Game.js';
+import { Paused } from './GameStates/Paused.js';
+import { Playing } from './GameStates/Playing.js';
+import { Game } from '../Game.js';
+
 
 // if 'Escape' pressed transition to GAMEOVER
 export function quitGame()

@@ -1,8 +1,8 @@
-import { Rect } from "../../Builtin/GameObjects/Rect.js";
+import { GameObject } from "../../Builtin/GameObjects/GameObject.js";
 
 import { Input } from "../../Input.js"
 
-export class FollowerRect extends Rect
+export class FollowerRect extends GameObject
 {
 	constructor(x, y, width, height, color)
 	{

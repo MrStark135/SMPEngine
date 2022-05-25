@@ -1,12 +1,15 @@
-import { GameObject } from './GameObject.js';
+import { ctx } from '../../common.js';
 
-export class Circle extends GameObject
+export class Circle
 {
 	constructor(x, y, radius, color)
 	{
-		super(x, y, color);
-		
+		this.x = x;
+		this.y = y;
 		this.radius = radius;
+		
+		this.color = color;
+		this.ctx = ctx
 	}
 	
 	Update()

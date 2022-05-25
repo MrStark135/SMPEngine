@@ -12,7 +12,7 @@
 
 import { GameStateManager } from '../GameStateManager.js';
 import { Playing } from '../Builtin/GameStates/Playing.js';
-import { pauseGame } from '../Builtin/TransitionManagers/transitionManagers.js';
+import { pauseGame } from '../Builtin/transitionManagers.js';
 
 export const GameStateInterface = 
 {
