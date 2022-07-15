@@ -1,7 +1,9 @@
+// Cleans any object that completely exited from the viewport
+
 import { GameObjectsManager } from "../../GameObjectsManager.js";
 import { canvas } from "../../common.js";
 
-export class ManagerObject
+export class GarbageCollector
 {
 	constructor()
 	{

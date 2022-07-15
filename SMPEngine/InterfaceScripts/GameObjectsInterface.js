@@ -12,11 +12,12 @@
 
 import { Circle } from '../Builtin/GameObjects/Circle.js';
 import { FollowerRect } from '../UserScripts/GameObjects/FollowerRect.js';
-import { ManagerObject } from '../Builtin/ManagerObjects/ManagerObject.js'
+import { GarbageCollector } from '../Builtin/ManagerObjects/GarbageCollector.js'
 import { GameObjectsManager } from '../GameObjectsManager.js';
 import { SpriteObject } from '../Builtin/GameObjects/SpriteObject.js';
 import { GameObject } from '../Builtin/GameObjects/GameObject.js';
 import { AnimatedObject } from '../Builtin/GameObjects/AnimatedObject.js';
+import { CollisionManager } from '../Builtin/ManagerObjects/CollisionManager.js';
 
 export const GameObjectsInterface = 
 {
@@ -43,13 +44,14 @@ export const GameObjectsInterface =
 				{ name: 'jump', src: 'Ninja Frog/Jump (32x32).png', frameSize: [32, 32], spacing: 0 },
 				{ name: 'double jump', src: 'Ninja Frog/Double Jump (32x32).png', frameSize: [32, 32], spacing: 0 }
 			],
-			default: 'doubleJump',
+			default: 'idle',
 			idle: { image: 'idle', frames: [[1, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]]], speed: 4},
 			doubleJump: { image: 'double jump', frames: [[1, [1, 2, 3, 4, 5, 6]]], speed: 3},
-			jump: { image: 'jump', frames: [[1, 1]], speed: 1},
+			jump: { image: 'jump', frames: [[1, 1]], speed: 0},
 		}));
 		
-		GameObjectsManager.gameObjects.push(new ManagerObject());
+		GameObjectsManager.gameObjects.push(new GarbageCollector());
+		GameObjectsManager.gameObjects.push(new CollisionManager('objectType', FollowerRect, AnimatedObject));
 		// ...
 		// ...
 	}

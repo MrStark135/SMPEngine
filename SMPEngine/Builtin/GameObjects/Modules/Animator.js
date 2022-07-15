@@ -33,7 +33,7 @@ export class Animator
 	
 	Update()
 	{
-		// the animator needs to have an Update() function for convention
+		this.currentAnimation.Update();
 	}
 	
 	Render()
@@ -93,6 +93,7 @@ export class Animator
 		let animation = 
 		{
 			name: name,
+			Update: Update.bind(this),
 			Render: Render.bind(this),
 			status:
 			{
@@ -124,7 +125,21 @@ export class Animator
 			}
 		}
 		
-		// this function will be attached to the current animation
+		// these functions will be attached to the current animation
+		function Update()
+		{
+			let status = this.currentAnimation.status;
+			
+			// speed is measured in frames
+			if(status.framesElapsed == speed)
+			{
+				status.framesElapsed = 0;
+				status.idx++;
+				if(status.idx == parsedFrames.length) status.idx = 0;
+			}
+			
+			status.framesElapsed++;
+		}
 		function Render()
 		{
 			// thanks to closures, this data doesn't have to be explicitly stored
@@ -138,22 +153,13 @@ export class Animator
 			
 			let status = this.currentAnimation.status;
 			
-			// speed is measured in frames
-			if(status.framesElapsed == speed)
-			{
-				status.framesElapsed = 0;
-				status.idx++;
-				if(status.idx == parsedFrames.length) status.idx = 0;
-			}
-			
 			let srcx = (parsedFrames[status.idx].col - 1) * (frameWidth + spacing);
 			let srcy = (parsedFrames[status.idx].row - 1) * (frameHeight + spacing);
-			let srcw = frameWidth + spacing;
-			let srch = frameHeight + spacing;
+			let srcw = frameWidth;
+			let srch = frameHeight;
 			
 			this.parent.ctx.drawImage(image, srcx, srcy, srcw, srch, this.parent.x, this.parent.y, this.parent.width, this.parent.height);
 			
-			status.framesElapsed++;
 		}
 		
 		return animation;
