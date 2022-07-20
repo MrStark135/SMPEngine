@@ -28,12 +28,12 @@ export const GameObjectsInterface =
 		
 		// HERE ADD GameObjects to the scene
 		GameObjectsManager.gameObjects.push(new GameObject(100, 100, 100, 100, '#673'));
-		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 100, 100, '#20A866'));
-		// GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 1, 200, '#25F'));
-		GameObjectsManager.gameObjects.push(new Circle(100, 100, 20, '#25F'));
-		GameObjectsManager.gameObjects.push(new Circle(100, 200, 20, '#25F'));
-		GameObjectsManager.gameObjects.push(new Circle(200, 100, 20, '#25F'));
-		GameObjectsManager.gameObjects.push(new Circle(200, 200, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 50, 10, '#20A866'));
+		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 10, 50, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(80, 80, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(80, 180, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(180, 80, 20, '#25F'));
+		GameObjectsManager.gameObjects.push(new Circle(180, 180, 20, '#25F'));
 		
 		GameObjectsManager.gameObjects.push(new SpriteObject(100, 200, 190, 190, 'first.png'));
 		GameObjectsManager.gameObjects.push(new AnimatedObject(300, 200, 32, 32,
@@ -54,6 +54,7 @@ export const GameObjectsInterface =
 		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, FollowerRect, GameObject));
 		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, FollowerRect, AnimatedObject));
 		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, GameObject, AnimatedObject));
+		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, FollowerRect, Circle));
 		// ...
 		// ...
 	}
