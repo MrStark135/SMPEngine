@@ -17,7 +17,7 @@ import { GameObjectsManager } from '../GameObjectsManager.js';
 import { SpriteObject } from '../Builtin/GameObjects/SpriteObject.js';
 import { GameObject } from '../Builtin/GameObjects/GameObject.js';
 import { AnimatedObject } from '../Builtin/GameObjects/AnimatedObject.js';
-import { CollisionManager } from '../Builtin/ManagerObjects/CollisionManager.js';
+import { CollisionManager, compTypes } from '../Builtin/ManagerObjects/CollisionManager.js';
 
 export const GameObjectsInterface = 
 {
@@ -28,8 +28,8 @@ export const GameObjectsInterface =
 		
 		// HERE ADD GameObjects to the scene
 		GameObjectsManager.gameObjects.push(new GameObject(100, 100, 100, 100, '#673'));
-		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 200, 1, '#25F'));
-		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 1, 200, '#25F'));
+		GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 100, 100, '#20A866'));
+		// GameObjectsManager.gameObjects.push(new FollowerRect(100, 100, 1, 200, '#25F'));
 		GameObjectsManager.gameObjects.push(new Circle(100, 100, 20, '#25F'));
 		GameObjectsManager.gameObjects.push(new Circle(100, 200, 20, '#25F'));
 		GameObjectsManager.gameObjects.push(new Circle(200, 100, 20, '#25F'));
@@ -51,7 +51,9 @@ export const GameObjectsInterface =
 		}));
 		
 		GameObjectsManager.gameObjects.push(new GarbageCollector());
-		GameObjectsManager.gameObjects.push(new CollisionManager('objectType', FollowerRect, AnimatedObject));
+		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, FollowerRect, GameObject));
+		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, FollowerRect, AnimatedObject));
+		GameObjectsManager.gameObjects.push(new CollisionManager(compTypes.OBJTYPE, GameObject, AnimatedObject));
 		// ...
 		// ...
 	}
